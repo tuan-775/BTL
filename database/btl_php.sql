@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2024 at 03:51 PM
+-- Generation Time: Nov 07, 2024 at 07:05 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,25 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `adproduct`
---
-
-CREATE TABLE `adproduct` (
-  `ma_loaisp` varchar(50) NOT NULL,
-  `masp` varchar(50) NOT NULL,
-  `tensp` varchar(50) NOT NULL,
-  `hinhanh` varchar(50) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
-  `gianhap` int(11) NOT NULL,
-  `giaxuat` int(11) NOT NULL,
-  `khuyenmai` int(11) NOT NULL,
-  `soluong` int(11) NOT NULL,
-  `mota_sp` varchar(200) NOT NULL,
-  `create_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `adproducttype`
 --
 
@@ -57,7 +38,53 @@ CREATE TABLE `adproducttype` (
 --
 
 INSERT INTO `adproducttype` (`ma_loaisp`, `ten_loaisp`, `mota_loaisp`) VALUES
-('nokia ', 'nokia100fsafs', '        siu bên fdafa     ');
+('nokia ', 'nokia100fsafs', '               aa siu bên fdafa           ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ad_product`
+--
+
+CREATE TABLE `ad_product` (
+  `ma_loaisp` varchar(50) NOT NULL,
+  `masp` varchar(50) NOT NULL,
+  `tensp` varchar(50) NOT NULL,
+  `hinhanh` varchar(50) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
+  `gianhap` int(11) NOT NULL,
+  `giaxuat` int(11) NOT NULL,
+  `khuyenmai` int(11) NOT NULL,
+  `soluong` int(11) NOT NULL,
+  `mota_sp` varchar(200) NOT NULL,
+  `create_date` date NOT NULL,
+  `flag` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `ad_product`
+--
+
+INSERT INTO `ad_product` (`ma_loaisp`, `masp`, `tensp`, `hinhanh`, `gianhap`, `giaxuat`, `khuyenmai`, `soluong`, `mota_sp`, `create_date`, `flag`) VALUES
+('nokia ', '001', 'Điện thoại', 'iphone-11-pro-max.jpg', 1234312, 41241, 4213412, 1234, '                                fdsfsf               ', '2024-11-20', 'nổi bật');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_new`
+--
+
+CREATE TABLE `tbl_new` (
+  `code_new` varchar(20) NOT NULL,
+  `title_new` varchar(50) NOT NULL,
+  `content_new` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tbl_new`
+--
+
+INSERT INTO `tbl_new` (`code_new`, `title_new`, `content_new`) VALUES
+('123', 'qưe', 'adada');
 
 -- --------------------------------------------------------
 
@@ -77,24 +104,23 @@ CREATE TABLE `ures` (
 --
 
 INSERT INTO `ures` (`uresname`, `password`, `password_again`, `role`) VALUES
-('tuan2606', '12345', '', 0),
-('', '', '', 0);
+('tuan0123', '12345', '', 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `adproduct`
---
-ALTER TABLE `adproduct`
-  ADD PRIMARY KEY (`masp`);
-
---
 -- Indexes for table `adproducttype`
 --
 ALTER TABLE `adproducttype`
   ADD PRIMARY KEY (`ma_loaisp`);
+
+--
+-- Indexes for table `ad_product`
+--
+ALTER TABLE `ad_product`
+  ADD PRIMARY KEY (`masp`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

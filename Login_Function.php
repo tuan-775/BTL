@@ -1,8 +1,7 @@
 <?php
     function insertLogin(
         $uresname,
-        $password,
-        $password_again
+        $password
     ) {
         $db = connect();
         //B1:check mã sản phẩm đã tồn tại chưa?
@@ -11,11 +10,11 @@
         $stm->execute();
         $count = $stm->fetchColumn();
         if ($count > 0) {
-            echo "Đã tồn tại sản phẩm";
+            echo "Đã tồn tại tài khoản";
         } else {
             //B2:INSERT vào ad_product
-            $sql = "INSERT INTO ures(uresname,password,password_again)";
-            $sql .= "VALUES('$uresname','$password','$password_again')";
+            $sql = "INSERT INTO ures(uresname,password)";
+            $sql .= "VALUES('$uresname','$password')";
             try {
                 $stm = $db->prepare($sql);
                 $stm->execute();

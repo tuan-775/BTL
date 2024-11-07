@@ -18,7 +18,11 @@
       if(isset($_POST["btn_submit"])){
           switch($_POST["btn_submit"]){
               case "Đăng ký thành viên":
-                insertLogin($txt_username,$txt_password,$txt_password_again);
+                if($txt_password === $txt_password_again){
+                  insertLogin($txt_username,$txt_password);
+                }else{
+                  echo "Mật khẩu không khớp";
+                }
                   break;
   }
   }
@@ -53,8 +57,10 @@
             <td colspan="2">
                 <input name="reset" type="reset" value ="Reset"/>
             	  <input name="btn_submit" type="submit" value ="Đăng ký thành viên"/>
+                <a href="Dang_Nhap.php">Đăng Nhập</a>
             </td>
           </tr>
+          
     	</table>
     </form>
 </body>

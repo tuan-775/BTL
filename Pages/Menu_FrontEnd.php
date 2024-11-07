@@ -1,5 +1,6 @@
 <?php
-
+require_once("Back_End/ADProductType/ADProductType_Function.php");
+$productType = getProductType();
 ?>
 <ul class="menu1 mainmenu">
 	<li><a href="index.php?action=Home">Trang chủ</a></li>

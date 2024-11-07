@@ -8,7 +8,7 @@ $txt_motaloaisp=isset($_POST["txt_motaloaisp"])?$_POST["txt_motaloaisp"]:$Produc
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	UpdateadProductType($txt_maloaisp,$txt_tenloaisp,$txt_motaloaisp);
 	echo"Bạn đã lưu thành công";
-	header("location:Manager.php?action=ADProductType");
+	header("location:Manager.php?action=AdProductType");
 	exit();
   }
 

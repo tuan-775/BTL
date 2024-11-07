@@ -39,7 +39,7 @@
                 // echo $action;
                 switch ($action) {
                     case "Home":
-                        require_once "Front_end/Home.php";
+                        require_once "Front_End/Home.php";
                         break;
                     case "Product":
                         require_once "Front_end/Product.php";

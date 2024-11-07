@@ -1,20 +1,44 @@
 <?php
 require_once "ADProductType_Function.php";
+$txt_maloaisp=isset($_POST["txt_maloaisp"])?$_POST["txt_maloaisp"]:"";
+$txt_tenloaisp=isset($_POST["txt_tenloaisp"])?$_POST["txt_tenloaisp"]:"";
+$txt_motaloaisp=isset($_POST["txt_motaloaisp"])?$_POST["txt_motaloaisp"]:"";
+// if($_SERVER["REQUEST_METHOD"]=="POST"){
+//     insertAdProductType($txt_maloaisp,
+//            $txt_tenloaisp,$txt_motaloaisp);
+// }
+if($_SERVER["REQUEST_METHOD"]== "POST"){
+    if(isset($_POST["btn_submit"])){
+        switch($_POST["btn_submit"]){
+            case "Thêm mới":
+                insertAdProductType($txt_maloaisp,$txt_tenloaisp,$txt_motaloaisp);
+                break;
+            case "delete":
+                $id=$_GET["id"];
+                deleteProductType($id);
+                break;
+}
+}
+}
 $productType=getProductType();
+
 ?>
 <form method="post">
-    <table >
+    <table>
         <tr>
-            <th colspan="13">Quản lý danh mục sản phẩm</th>
+            <th colspan="5">Quản lý danh mục loại sản phẩm</th>
         </tr>
         <tr>
-            <td colspan="13">
-                <a href="Manager.php?action=ADProductType_Add">Thêm mới</a>
+            <td colspan="5">
+                <input type="text" name="txt_maloaisp" placeholder="Nhập mã loại sản phẩm" />
+
+                <input type="text" name="txt_tenloaisp" placeholder="Nhập tên loại sản phẩm" />
+
+                <input type="text" name="txt_motaloaisp" placeholder="Nhập mô tả loại sản phẩm" />
+
+                <input type="submit" name="btn_submit" value="Thêm mới" />
             </td>
-        </tr>
-    </table>
-    <table border="1">
-    <tr>
+        <tr>
             <td>Mã loại sản phẩm</td>
             <td>Tên loại sản phẩm</td>
             <td>Mô tả loại sản phẩm</td>
@@ -34,7 +58,7 @@ $productType=getProductType();
             </td>
             <td>
                 <button type="submit" name="btn_submit" value="delete"
-                    formaction="Manager.php?action=ADProductType_Add&id=<?php echo $v["ma_loaisp"];?>"
+                    formaction="Manager.php?action=AdProductType&id=<?php echo $v["ma_loaisp"];?>"
                     onclick="return confirm('bạn có muốn xóa không')">
                     Xóa
                 </button>

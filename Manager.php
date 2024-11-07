@@ -41,21 +41,18 @@
                     case "ADProductType":
                         require_once "Back_End/ADProductType/ADProductType_View.php";
                         break;
-                    case "ADProductType_Add";
-                    require_once "Back_End/ADProductType/ADProductType_Add.php";
-                        break;
                     case "UpdateAdProductType":
                         require_once "Back_end/ADProductType/ADProductType_Update.php";
                         break;
-                    case "AdProduct":
-                        require_once "back_end/AdProduct/AdProductView.php";
+                    case "ADProduct":
+                        require_once "Back_End/ADProduct/ADProduct_View.php";
                         break;
                     
                     case "AdProduct_add";
-                        require_once("back_end/AdProduct/AdProduct_add.php");
+                        require_once("Back_End/ADProduct/ADProduct_Add.php");
                         break;
                     case "UpdateAddProduct1":
-                        require_once("back_end/AdProduct/AdProduct_Update.php");
+                        require_once("Back_End/ADProduct/ADProduct_Update.php");
                         break;
                     case "tinbai":
                         require_once("tinbai/tb_Add.php");

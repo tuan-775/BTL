@@ -11,6 +11,15 @@
 		echo"bạn lưu sản phẩm thành công".$e->getMessage();
 	}
 	}
+	//lấy dữ liệu theo mã loại sản phẩm
+	function getProductTypeID($ma_loaisp){
+		$db=connect();
+		$sql="SELECT * FROM adproducttype WHERE ma_loaisp='$ma_loaisp'";
+		$stm=$db->prepare($sql);
+		$stm->execute();
+		$productTypeID=$stm->fetch();
+		return $productTypeID;
+	}
 	//Lấy toàn bộ dữ liệu từ bảng adproductType
 	function getProductType(){
 		$db=connect();
@@ -32,14 +41,5 @@
 		$sql="UPDATE adproducttype SET ten_loaisp='$ten_loaisp',";
 		$sql.="mota_loaisp='$mota_loaisp'WHERE ma_loaisp='$ma_loaisp'";
 		$db->exec($sql);
-	}
-    //lấy dữ liệu theo mã loại sản phẩm
-	function getProductTypeID($ma_loaisp){
-		$db=connect();
-		$sql="SELECT * FROM adproducttype WHERE ma_loaisp='$ma_loaisp'";
-		$stm=$db->prepare($sql);
-		$stm->execute();
-		$productTypeID=$stm->fetch();
-		return $productTypeID;
 	}
 	?>
